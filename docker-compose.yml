@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  okta_aws_updater:
+    image: okta_aws_updater_image:latest
+    restart: unless-stopped
+    environment:
+      ORGANIZATION = organization
+      PASSWORD = password
+      UPDATE_RANGE_TIME = 3600
+    volumes:
+      - .:/home/
+    command: python main.py
